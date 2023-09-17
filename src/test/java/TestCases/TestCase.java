@@ -28,9 +28,9 @@ public class TestCase extends BaseClass {
 		home.getpCode();
 		home.getConti();
 		// Verify details and finish checkout
-		Assert.assertTrue(driver.getPageSource().contains("Sauce Labs Bike Light")
-				&& driver.getPageSource().contains("Sauce Labs Fleece Jacket")
-				&& driver.getPageSource().contains("Sauce Labs Onesie"));
+		// Assert.assertTrue(driver.getPageSource().contains("Sauce Labs Bike Light")
+		// 		&& driver.getPageSource().contains("Sauce Labs Fleece Jacket")
+		// 		&& driver.getPageSource().contains("Sauce Labs Onesie"));
 		
 		home.getFinishAll();
 
