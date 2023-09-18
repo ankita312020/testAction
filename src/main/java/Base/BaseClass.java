@@ -29,7 +29,12 @@ public class BaseClass {
 		property = new Properties();
 		property.load(fisReader);	
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+options.addArguments("--no-sandbox");
+options.addArguments("--disable-dev-shm-usage");
+options.addArguments("--headless");
+driver = new ChromeDriver(options);
+		//driver = new ChromeDriver();
 		driver.get(property.getProperty("URL"));
 		driver.manage().window().maximize();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
