@@ -25,12 +25,20 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+        server-id: github 
+
+        settings-path: ${{ github.workspace }} 
     - name:  Install Google Chrome # Using shell script to install Google Chrome
       run:   |
-              chmod +x InstallChrome.sh
-                         InstallChrome.sh
+          chmod +x ./scripts/InstallChrome.sh
+
+                          ./scripts/InstallChrome.sh
     
     - name: Build with Maven
+    
       run: mvn -B package --file pom.xml
+
+
+
 
   
