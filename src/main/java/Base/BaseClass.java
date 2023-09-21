@@ -30,10 +30,10 @@ public class BaseClass {
 		property = new Properties();
 		property.load(fisReader);	
 		WebDriverManager.chromedriver().setup();
-		ChromeOptions options = new ChromeOptions();
-options.addArguments("--no-sandbox");
-options.addArguments("--disable-dev-shm-usage");
-options.addArguments("--headless");
+// 		ChromeOptions options = new ChromeOptions();
+// options.addArguments("--no-sandbox");
+// options.addArguments("--disable-dev-shm-usage");
+// options.addArguments("--headless");
 //driver = new ChromeDriver(options);
 		driver = new ChromeDriver();
 		driver.get(property.getProperty("URL"));
