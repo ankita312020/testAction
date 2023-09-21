@@ -26,26 +26,26 @@ public class BaseClass {
 
 	@BeforeSuite
 	public void initialization() throws IOException {
-		fisReader = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config.properties");
-		property = new Properties();
-		property.load(fisReader);
-		WebDriverManager.chromedriver().setup();
+		
 		//ChromeOptions options = new ChromeOptions();
 		//options.addArguments("--incognito", "--disable-blink-features=AutomationControlled");
 		//driver =  new ChromeDriver(options);
-		// fisReader = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config.properties");
-		// property = new Properties();
-		// property.load(fisReader);	
-		// WebDriverManager.chromedriver().setup();
-// 		ChromeOptions options = new ChromeOptions();
-// options.addArguments("--no-sandbox");
-// options.addArguments("--disable-dev-shm-usage");
-// options.addArguments("--headless");
-//driver = new ChromeDriver(options);
-		driver = new ChromeDriver();
-		driver.get(property.getProperty("URL"));
-		driver.manage().window().maximize();
-		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+		
+		 fisReader = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config.properties");
+		 property = new Properties();
+		 property.load(fisReader);	
+		 
+ 		 ChromeOptions options = new ChromeOptions();
+		 options.addArguments("--headless");
+                 options.addArguments("--no-sandbox");
+		 options.addArguments("--disable-dev-shm-usage");
+                 driver = new ChromeDriver(options);
+		 // WebDriverManager.chromedriver().setup();
+		 // driver = new ChromeDriver();
+		 driver.get(property.getProperty("URL"));
+		 driver.manage().window().maximize();
+		 wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 	}
 
