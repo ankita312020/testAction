@@ -32,7 +32,7 @@ public class TestCase extends BaseClass {
 		// 		&& driver.getPageSource().contains("Sauce Labs Fleece Jacket")
 		// 		&& driver.getPageSource().contains("Sauce Labs Onesie"));
 		
-		home.getFinishAll();
+		home.getFinishAll1();
 
 	}
 
