@@ -21,7 +21,7 @@ public class BaseClass {
 	public static FileInputStream fisReader = null;
 	public static Properties property = null;
 	public static WebDriverWait wait = null;
-	public static WebDriver driver = null;
+	public static WebDriver driver;
 	public static saucedemoPage home = null;
 
 	@BeforeSuite
@@ -30,9 +30,9 @@ public class BaseClass {
 		property = new Properties();
 		property.load(fisReader);
 		WebDriverManager.chromedriver().setup();
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--incognito", "--disable-blink-features=AutomationControlled");
-		driver =  new ChromeDriver(options);
+		//ChromeOptions options = new ChromeOptions();
+		//options.addArguments("--incognito", "--disable-blink-features=AutomationControlled");
+		//driver =  new ChromeDriver(options);
 		// fisReader = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config.properties");
 		// property = new Properties();
 		// property.load(fisReader);	
@@ -42,7 +42,7 @@ public class BaseClass {
 // options.addArguments("--disable-dev-shm-usage");
 // options.addArguments("--headless");
 //driver = new ChromeDriver(options);
-	//	driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.get(property.getProperty("URL"));
 		driver.manage().window().maximize();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
