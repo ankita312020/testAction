@@ -28,14 +28,21 @@ public class BaseClass {
 	public void initialization() throws IOException {
 		fisReader = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config.properties");
 		property = new Properties();
-		property.load(fisReader);	
+		property.load(fisReader);
 		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--incognito", "--disable-blink-features=AutomationControlled");
+		driver =  new ChromeDriver(options);
+		// fisReader = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config.properties");
+		// property = new Properties();
+		// property.load(fisReader);	
+		// WebDriverManager.chromedriver().setup();
 // 		ChromeOptions options = new ChromeOptions();
 // options.addArguments("--no-sandbox");
 // options.addArguments("--disable-dev-shm-usage");
 // options.addArguments("--headless");
 //driver = new ChromeDriver(options);
-		driver = new ChromeDriver();
+	//	driver = new ChromeDriver();
 		driver.get(property.getProperty("URL"));
 		driver.manage().window().maximize();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
